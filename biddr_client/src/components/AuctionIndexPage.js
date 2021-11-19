@@ -7,7 +7,6 @@ const AuctionIndexPage = () => {
 
   useEffect(() => {
     Auction.index().then((auctions) => {
-      console.log(auctions);
       setAuctions(auctions);
     });
   }, []);

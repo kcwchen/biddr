@@ -8,7 +8,6 @@ function SignInPage(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const { currentTarget } = event;
     const params = {
       email: email,
       password: password,
@@ -16,7 +15,7 @@ function SignInPage(props) {
     Session.create(params).then((data) => {
       if (data.id) {
         onSignIn();
-        props.history.push('/questions');
+        props.history.push('/');
       }
     });
   }

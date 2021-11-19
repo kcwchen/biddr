@@ -11,7 +11,17 @@ const NavBar = ({ currentUser, onSignOut }) => {
   return (
     <nav>
       <NavLink to='/'>Home</NavLink>|<NavLink to='/auctions'>Auctions</NavLink>|
-      <NavLink to='/sign_in'>Sign In</NavLink>
+      {currentUser ? (
+        <>
+          <span>Welcome, {currentUser.first_name}</span>-
+          <button onClick={handleSignOut}>Sign Out</button>
+        </>
+      ) : (
+        <>
+          <NavLink to='sign_in'>Sign In</NavLink>|
+          <NavLink to='sign_up'>Sign Up</NavLink>
+        </>
+      )}
     </nav>
   );
 };

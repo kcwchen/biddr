@@ -25,7 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar currentUser={user} />
       <Switch>
         <Route exact path='/' component={WelcomePage} />
         <Route exact path='/auctions' component={AuctionIndexPage} />
