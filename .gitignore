@@ -180,19 +180,19 @@ dist
 *.rbc
 capybara-*.html
 .rspec
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/db/*.sqlite3-[0-9]*
-/public/system
-/coverage/
-/spec/tmp
+/biddr_api/db/*.sqlite3
+/biddr_api/db/*.sqlite3-journal
+/biddr_api/db/*.sqlite3-[0-9]*
+/biddr_api/public/system
+/biddr_api/coverage/
+/biddr_api/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+/biddr_api/log/*
+/biddr_api/tmp/*
 !/log/.keep
 !/tmp/.keep
 
