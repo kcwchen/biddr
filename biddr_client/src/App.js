@@ -25,9 +25,13 @@ function App() {
     });
   };
 
+  const onSignOut = () => {
+    setUser(null);
+  };
+
   return (
     <BrowserRouter>
-      <NavBar currentUser={user} />
+      <NavBar currentUser={user} onSignOut={onSignOut} />
       <Switch>
         <Route exact path='/' component={WelcomePage} />
         <Route
