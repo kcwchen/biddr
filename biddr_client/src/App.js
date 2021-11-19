@@ -7,6 +7,7 @@ import WelcomePage from './components/WelcomePage';
 import AuctionIndexPage from './components/AuctionIndexPage';
 import AuctionShowPage from './components/AuctionShowPage';
 import SignInPage from './components/SignInPage';
+import AuthRoute from './components/AuthRoute';
 import AuctionNewPage from './components/AuctionNewPage';
 
 function App() {
@@ -29,15 +30,19 @@ function App() {
       <NavBar currentUser={user} />
       <Switch>
         <Route exact path='/' component={WelcomePage} />
-        <Route exact path='/auctions' component={AuctionIndexPage} />
-        <Route path='/auctions/new' component={AuctionNewPage}></Route>
-        <Route path='/auctions/:id' component={AuctionShowPage} />
         <Route
           path='/sign_in'
           render={(routeProps) => (
             <SignInPage {...routeProps} onSignIn={getCurrentUser} />
           )}
         ></Route>
+        <Route exact path='/auctions' component={AuctionIndexPage} />
+        <AuthRoute
+          isAllowed={!!user}
+          path='/auctions/new'
+          component={AuctionNewPage}
+        ></AuthRoute>
+        <Route path='/auctions/:id' component={AuctionShowPage} />
       </Switch>
     </BrowserRouter>
   );
