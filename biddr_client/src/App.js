@@ -9,6 +9,7 @@ import AuctionShowPage from './components/AuctionShowPage';
 import SignInPage from './components/SignInPage';
 import AuthRoute from './components/AuthRoute';
 import AuctionNewPage from './components/AuctionNewPage';
+import SignUpPage from './components/SignUpPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,12 @@ function App() {
             <SignInPage {...routeProps} onSignIn={getCurrentUser} />
           )}
         ></Route>
+        <Route
+          path='/sign_up'
+          render={(routeProps) => (
+            <SignUpPage {...routeProps} onSignUp={getCurrentUser} />
+          )}
+        />
         <Route exact path='/auctions' component={AuctionIndexPage} />
         <AuthRoute
           isAllowed={!!user}
