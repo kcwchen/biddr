@@ -17,7 +17,14 @@ const AuctionIndexPage = () => {
         return (
           <div key={auction.id}>
             <h1>{auction.title}</h1>
-            <small>Posted {auction.created_at.toLocaleString()}</small>
+            <small>
+              Posted on{' '}
+              {new Date(auction.created_at).toLocaleDateString('en-CA', {
+                month: 'long',
+                day: '2-digit',
+                year: 'numeric',
+              })}
+            </small>
           </div>
         );
       })}
