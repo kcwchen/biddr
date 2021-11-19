@@ -7,6 +7,7 @@ import WelcomePage from './components/WelcomePage';
 import AuctionIndexPage from './components/AuctionIndexPage';
 import AuctionShowPage from './components/AuctionShowPage';
 import SignInPage from './components/SignInPage';
+import AuctionNewPage from './components/AuctionNewPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={WelcomePage} />
         <Route exact path='/auctions' component={AuctionIndexPage} />
+        <Route path='/auctions/new' component={AuctionNewPage}></Route>
         <Route path='/auctions/:id' component={AuctionShowPage} />
         <Route
           path='/sign_in'

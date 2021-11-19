@@ -7,6 +7,16 @@ export const Auction = {
   show(aid) {
     return fetch(`${baseUrl}/auctions/${aid}`).then((res) => res.json());
   },
+  create(params) {
+    return fetch(`${baseUrl}/auctions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(params),
+    }).then((res) => res.json());
+  },
 };
 
 export const Session = {
