@@ -55,12 +55,12 @@ const NavBar = ({ currentUser, onSignOut }) => {
           ) : (
             <>
               <li className='nav-item'>
-                <NavLink className='nav-link' to='sign_in'>
+                <NavLink className='nav-link' to='/sign_in'>
                   Sign In
                 </NavLink>
               </li>
               <li className='nav-item'>
-                <NavLink className='nav-link' to='sign_up'>
+                <NavLink className='nav-link' to='/sign_up'>
                   Sign Up
                 </NavLink>
               </li>

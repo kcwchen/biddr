@@ -43,10 +43,27 @@ users = User.all
     reserve_price: Faker::Commerce.price,
     created_at: created_at,
     updated_at: created_at,
+    state: 'published',
     user: users.sample
   )
+
+  if a.valid?
+    rand(1..20).times do
+      b = Bid.create(
+        bid_price: Faker::Commerce.price,
+        auction: a,
+        user: users.sample
+      )
+
+      if b.bid_price > a.reserve_price
+        a.update(state: 'reserve met')
+      end
+    end
+  end
 end
 
 auctions = Auction.all
+bids = Bid.all
 puts users.count
 puts auctions.count
+puts bids.count

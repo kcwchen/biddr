@@ -15,7 +15,7 @@ const AuctionIndexPage = ({ currentUser }) => {
     if (
       auction.state === 'published' ||
       auction.state === 'reserve met' ||
-      auction.owner.id === currentUser?.id
+      auction.owner?.id === currentUser?.id
     ) {
       return true;
     } else {
