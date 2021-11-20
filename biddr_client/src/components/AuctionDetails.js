@@ -6,7 +6,7 @@ const AuctionDetails = (props) => {
     <>
       <h1>{props.title}</h1>
       <p>{props.description}</p>
-      <p></p>
+      <p>Current Price: ${props.current_price}</p>
       <p>
         Ends at:{' '}
         {props.ends_at.toLocaleDateString('en-CA', {

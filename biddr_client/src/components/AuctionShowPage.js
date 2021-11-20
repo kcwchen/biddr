@@ -5,10 +5,14 @@ import BidList from './BidList';
 
 const AuctionShowPage = (props) => {
   const [auction, setAuction] = useState({});
+  const [currentPrice, setCurrentPrice] = useState(1);
 
   useEffect(() => {
     Auction.show(props.match.params.id).then((auction) => {
       setAuction(auction);
+      if (auction.bids[0]) {
+        setCurrentPrice(parseInt(auction.bids[0].bid_price) + 1);
+      }
     });
   }, []);
 
@@ -22,6 +26,7 @@ const AuctionShowPage = (props) => {
         reserve_price={auction.reserve_price}
         owner={auction.owner}
         created_at={new Date(auction.created_at)}
+        current_price={currentPrice}
       />
       <BidList bids={auction.bids} />
     </div>

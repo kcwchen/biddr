@@ -20,7 +20,6 @@ function App() {
 
   const getCurrentUser = () => {
     return User.current().then((user) => {
-      console.log(!!user);
       if (user?.id) {
         setUser(user);
       }
