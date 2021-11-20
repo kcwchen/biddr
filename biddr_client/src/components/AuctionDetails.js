@@ -22,6 +22,11 @@ const AuctionDetails = (props) => {
           year: 'numeric',
         })}
       </p>
+      {props.state === 'reserve met' ? (
+        <p>Reserve price is met</p>
+      ) : (
+        <p>Reserve price not met</p>
+      )}
       {props.currentUser &&
       props.currentUser?.id === props.owner?.id &&
       props.state === 'draft' ? (
@@ -31,7 +36,7 @@ const AuctionDetails = (props) => {
           </button>
         </div>
       ) : null}
-      <BidForm aid={props.id} />
+      <BidForm aid={props.id} reserve_price={props.reserve_price} />
     </>
   );
 };

@@ -1,14 +1,19 @@
 import React from 'react';
-import { Bid } from '../requests';
+import { Auction, Bid } from '../requests';
 
-const BidForm = ({ aid }) => {
+const BidForm = ({ aid, reserve_price }) => {
   const handleNewBid = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const params = {
       bid_price: formData.get('bid_price'),
     };
-    Bid.create(params, aid).then((data) => {
+    Bid.create(params, aid).then(() => {
+      if (parseInt(params.bid_price) > parseInt(reserve_price)) {
+        Auction.update({ state: 'reserve met' }, aid).then(() => {
+          window.location.reload();
+        });
+      }
       window.location.reload();
     });
   };
