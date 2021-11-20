@@ -3,9 +3,9 @@ import BidDetails from './BidDetails';
 
 const BidList = ({ bids }) => {
   return (
-    <div>
+    <div className='mt-3'>
       <h3>Previous Bids</h3>
-      <ul>
+      <ul className='list-group'>
         {bids
           ? bids.map((bid) => {
               return (

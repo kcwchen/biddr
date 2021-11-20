@@ -10,42 +10,53 @@ export default function NewAuctionForm(props) {
       ends_at: formData.get('ends_at'),
       reserve_price: formData.get('reserve_price'),
     };
-    console.log(params);
     props.createAuction(params);
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='title'>Title</label>
-        <br />
-        <input type='text' name='title' id='title' />
-        <br />
+      <div className='mb-3'>
+        <label htmlFor='title' className='form-label'>
+          Title
+        </label>
+        <input type='text' name='title' id='title' className='form-control' />
       </div>
-      <div>
-        <label htmlFor='description'>Description</label>
-        <br />
-        <input type='text' name='description' id='description' />
-        <br />
+      <div className='mb-3'>
+        <label htmlFor='description' className='form-label'>
+          Description
+        </label>
+        <input
+          type='text'
+          name='description'
+          id='description'
+          className='form-control'
+        />
       </div>
-      <div>
-        <label htmlFor='ends_at'>Ends At</label>
-        <br />
-        <input type='date' name='ends_at' id='ends_at' />
-        <br />
+      <div className='mb-3'>
+        <label htmlFor='ends_at' className='form-label'>
+          End Date
+        </label>
+        <input
+          type='date'
+          name='ends_at'
+          id='ends_at'
+          min={`${new Date()}`}
+          className='form-control'
+        />
       </div>
-      <div>
-        <label htmlFor='reserve_price'>Reserve Price</label>
-        <br />
+      <div className='mb-3'>
+        <label htmlFor='reserve_price' className='form-label'>
+          Reserve Price
+        </label>
         <input
           type='number'
           step='0.01'
           name='reserve_price'
           id='reserve_price'
+          className='form-control'
         />
-        <br />
       </div>
-      <div>
-        <input type='submit' value='Submit' />
+      <div className='mb-3'>
+        <input className='btn btn-outline-primary' type='submit' value='Save' />
       </div>
     </form>
   );

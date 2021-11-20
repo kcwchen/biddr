@@ -21,30 +21,40 @@ function SignInPage(props) {
   }
 
   return (
-    <main>
-      <h1>Sign In</h1>
+    <div className='container mt-3'>
+      <h1 className='text-center'>Sign In</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='email'>Email</label>
+        <div className='mb-3'>
+          <label className='form-label' htmlFor='email'>
+            Email
+          </label>
           <input
             type='email'
             name='email'
             id='email'
+            className='form-control'
             onChange={(e) => setEmail(e.currentTarget.value)}
           />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
+        <div className='mb-3'>
+          <label className='form-label' htmlFor='password'>
+            Password
+          </label>
           <input
             type='password'
             name='password'
             id='password'
+            className='form-control'
             onChange={(e) => setPassword(e.currentTarget.value)}
           />
         </div>
-        <input type='submit' value='Sign In' />
+        <input
+          className='btn btn-outline-primary'
+          type='submit'
+          value='Sign In'
+        />
       </form>
-    </main>
+    </div>
   );
 }
 

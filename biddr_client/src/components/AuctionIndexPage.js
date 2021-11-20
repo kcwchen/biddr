@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Auction } from '../requests';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const AuctionIndexPage = () => {
   const [auctions, setAuctions] = useState([]);
@@ -12,21 +12,27 @@ const AuctionIndexPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container-fluid mt-3'>
+      <h1 className='text-center'>Auctions</h1>
       {auctions.map((auction) => {
         return (
-          <div key={auction.id}>
-            <h1>
-              <Link to={`/auctions/${auction.id}`}>{auction.title}</Link>
-            </h1>
-            <small>
-              Posted on{' '}
-              {new Date(auction.created_at).toLocaleDateString('en-CA', {
-                month: 'long',
-                day: '2-digit',
-                year: 'numeric',
-              })}
-            </small>
+          <div className='card border-0'>
+            <div key={auction.id} className='card-body'>
+              <NavLink
+                className='card-title text-decoration-none'
+                to={`/auctions/${auction.id}`}
+              >
+                <h1>{auction.title}</h1>
+              </NavLink>
+              <small>
+                Posted on{' '}
+                {new Date(auction.created_at).toLocaleDateString('en-CA', {
+                  month: 'long',
+                  day: '2-digit',
+                  year: 'numeric',
+                })}
+              </small>
+            </div>
           </div>
         );
       })}

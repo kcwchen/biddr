@@ -13,7 +13,7 @@ const AuctionShowPage = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className='container-fluid mt-3'>
       <AuctionDetails
         title={auction.title}
         description={auction.description}

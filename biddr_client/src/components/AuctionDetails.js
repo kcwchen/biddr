@@ -1,12 +1,21 @@
 import React from 'react';
+import BidForm from './BidForm';
 
 const AuctionDetails = (props) => {
   return (
     <>
-      <h2>{props.title}</h2>
+      <h1>{props.title}</h1>
       <p>{props.description}</p>
       <p></p>
-      <p>Ends at: {props.ends_at.toLocaleString()}</p>
+      <p>
+        Ends at:{' '}
+        {props.ends_at.toLocaleDateString('en-CA', {
+          month: 'long',
+          day: '2-digit',
+          year: 'numeric',
+        })}
+      </p>
+      <BidForm />
     </>
   );
 };

@@ -20,6 +20,7 @@ function App() {
 
   const getCurrentUser = () => {
     return User.current().then((user) => {
+      console.log(!!user);
       if (user?.id) {
         setUser(user);
       }
@@ -37,12 +38,14 @@ function App() {
         <Route exact path='/' component={WelcomePage} />
         <Route
           path='/sign_in'
+          exact
           render={(routeProps) => (
             <SignInPage {...routeProps} onSignIn={getCurrentUser} />
           )}
         ></Route>
         <Route
           path='/sign_up'
+          exact
           render={(routeProps) => (
             <SignUpPage {...routeProps} onSignUp={getCurrentUser} />
           )}
