@@ -19,6 +19,19 @@ export const Auction = {
   },
 };
 
+export const Bid = {
+  create(params, aid) {
+    return fetch(`${baseUrl}/auctions/${aid}/bids`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(params),
+    }).then((res) => res.json());
+  },
+};
+
 export const Session = {
   create(params) {
     return fetch(`${baseUrl}/session`, {

@@ -15,7 +15,7 @@ const AuctionDetails = (props) => {
           year: 'numeric',
         })}
       </p>
-      <BidForm />
+      <BidForm aid={props.id} />
     </>
   );
 };

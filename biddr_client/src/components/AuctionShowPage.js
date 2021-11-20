@@ -15,6 +15,7 @@ const AuctionShowPage = (props) => {
   return (
     <div className='container-fluid mt-3'>
       <AuctionDetails
+        id={auction.id}
         title={auction.title}
         description={auction.description}
         ends_at={new Date(auction.ends_at)}

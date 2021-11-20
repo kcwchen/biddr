@@ -9,7 +9,9 @@ class AuctionSerializer < ActiveModel::Serializer
     :updated_at
   )
 
-  has_many :bids
+  has_many :bids do
+    object.bids.order(bid_price: :desc)
+  end
   class BidSerializer < ActiveModel::Serializer
     attributes(
       :id,
