@@ -49,13 +49,24 @@ function App() {
             <SignUpPage {...routeProps} onSignUp={getCurrentUser} />
           )}
         />
-        <Route exact path='/auctions' component={AuctionIndexPage} />
+        <Route
+          exact
+          path='/auctions'
+          render={(routeProps) => (
+            <AuctionIndexPage {...routeProps} currentUser={user} />
+          )}
+        />
         <AuthRoute
           isAllowed={!!user}
           path='/auctions/new'
           component={AuctionNewPage}
         ></AuthRoute>
-        <Route path='/auctions/:id' component={AuctionShowPage} />
+        <Route
+          path='/auctions/:id'
+          render={(routeProps) => (
+            <AuctionShowPage {...routeProps} currentUser={user} />
+          )}
+        />
       </Switch>
     </BrowserRouter>
   );

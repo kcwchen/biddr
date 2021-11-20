@@ -25,6 +25,14 @@ class Api::V1::AuctionsController < Api::ApplicationController
     end
   end
 
+  def update
+    if @auction.update(auction_params)
+      render(json: {id: @auction.id})
+    else
+      render(json: { errors: @auction.errors, status: 422})
+    end
+  end
+
   private
 
   def find_auction
@@ -32,6 +40,6 @@ class Api::V1::AuctionsController < Api::ApplicationController
   end
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :ends_at, :reserve_price)
+    params.require(:auction).permit(:title, :description, :ends_at, :reserve_price, :state)
   end
 end

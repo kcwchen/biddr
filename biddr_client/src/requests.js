@@ -17,6 +17,16 @@ export const Auction = {
       body: JSON.stringify(params),
     }).then((res) => res.json());
   },
+  update(params, aid) {
+    return fetch(`${baseUrl}/auctions/${aid}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(params),
+    }).then((res) => res.json());
+  },
 };
 
 export const Bid = {

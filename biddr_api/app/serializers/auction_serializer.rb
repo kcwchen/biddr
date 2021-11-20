@@ -5,6 +5,7 @@ class AuctionSerializer < ActiveModel::Serializer
     :description,
     :ends_at,
     :reserve_price,
+    :state,
     :created_at,
     :updated_at
   )

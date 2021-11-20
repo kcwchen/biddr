@@ -18,17 +18,23 @@ const AuctionShowPage = (props) => {
 
   return (
     <div className='container-fluid mt-3'>
-      <AuctionDetails
-        id={auction.id}
-        title={auction.title}
-        description={auction.description}
-        ends_at={new Date(auction.ends_at)}
-        reserve_price={auction.reserve_price}
-        owner={auction.owner}
-        created_at={new Date(auction.created_at)}
-        current_price={currentPrice}
-      />
-      <BidList bids={auction.bids} />
+      <div className='card border-0'>
+        <div className='card-body'>
+          <AuctionDetails
+            id={auction.id}
+            title={auction.title}
+            description={auction.description}
+            ends_at={new Date(auction.ends_at)}
+            reserve_price={auction.reserve_price}
+            owner={auction.owner}
+            created_at={new Date(auction.created_at)}
+            current_price={currentPrice}
+            currentUser={props.currentUser}
+            state={auction.state}
+          />
+          <BidList bids={auction.bids} />
+        </div>
+      </div>
     </div>
   );
 };
