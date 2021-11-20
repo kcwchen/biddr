@@ -12,6 +12,12 @@ const NavBar = ({ currentUser, onSignOut }) => {
     <nav className='navbar navbar-expand-sm navbar-light bg-light'>
       <div className='container-fluid'>
         <NavLink className='navbar-brand' to='/'>
+          <img
+            src='https://mpng.subpng.com/20190629/pxu/kisspng-portable-network-graphics-auction-clip-art-vector-judge-clipart-law-office-judge-law-office-transpa-5d17b3fed59290.6349147915618344948748.jpg'
+            alt='logo'
+            width='25'
+            height='25'
+          />{' '}
           Biddr
         </NavLink>
         <ul className='navbar-nav'>

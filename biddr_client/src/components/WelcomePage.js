@@ -1,13 +1,8 @@
 import React from 'react';
+import './WelcomePage.css';
 
 const WelcomePage = () => {
-  return (
-    <div>
-      <h1>
-        Going twice. Going once. <br /> Sold to Biddr!
-      </h1>
-    </div>
-  );
+  return <div className='hero'></div>;
 };
 
 export default WelcomePage;
