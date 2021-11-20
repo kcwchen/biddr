@@ -35,8 +35,9 @@ const AuctionDetails = (props) => {
             Publish
           </button>
         </div>
-      ) : null}
-      <BidForm aid={props.id} reserve_price={props.reserve_price} />
+      ) : (
+        <BidForm aid={props.id} reserve_price={props.reserve_price} />
+      )}
     </>
   );
 };
